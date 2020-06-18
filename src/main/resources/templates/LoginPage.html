@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>my login page</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><i class="fa fa-eye" aria-hidden="true"></i><span>LOK</span><span>mani</span></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+  <!--    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul> -->
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="#">HOME</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login As<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/Doctor">Doctor</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/Staff">Staff</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+	<div th:switch="${MODE}">
+	<div th:case="HOME">
+	<div class="jumbotron">
+  <h1>LOKMANI EYECARE CENTER</h1>
+  <p>We care for your eyes and provide the best of the services in the town.</p>
+</div>
+</div>
+<div th:case="LOGIN">
+<div class="container">
+<h2 class="align-center">Enter your Details</h2>
+<form th:action="@{/Doctor}" method="post">
+  <div class="form-group">
+    <label for="Email1">Email address</label>
+    <input type="email" class="form-control" id="Email" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label for="Password">Password</label>
+    <input type="password" class="form-control" id="Password" placeholder="Password">
+  </div>
+  <div class="form-group">
+  <label for="role">role</label>
+    <input type="text" class="form-control" id="role" >
+  </div>
+  
+  <button type="submit"  class="btn btn-default">Submit</button>
+</form>
+</div>
+</div>
+</div>
+
+</body>
+</html>
